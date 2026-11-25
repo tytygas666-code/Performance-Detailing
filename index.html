@@ -1,0 +1,2329 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b0b">
+
+  <meta
+    name="description"
+    content="Performance Detailing в Волгограде: бронирование, полировка, керамика, тонировка и уход за автомобилем."
+  >
+
+  <title>Performance Detailing — Волгоград</title>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0b0b;
+      --text: #f0efec;
+      --muted: #aaa9a6;
+      --accent: #c7b89c;
+      --line: rgba(255, 255, 255, 0.13);
+      --width: 1320px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    section {
+      scroll-margin-top: 110px;
+    }
+
+    .container {
+      width: min(var(--width), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .glass {
+      border: 1px solid var(--line);
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.085),
+        rgba(255, 255, 255, 0.025)
+      );
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 20px 60px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    /* ШАПКА */
+
+    .header {
+      position: fixed;
+      z-index: 100;
+      top: 18px;
+      left: 0;
+      right: 0;
+    }
+
+    .nav {
+      min-height: 78px;
+      padding: 12px 16px 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border-radius: 18px;
+      background-color: rgba(16, 16, 16, 0.86);
+    }
+
+    .logo {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .logo img {
+      max-width: 190px;
+      max-height: 50px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-text strong {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .logo-text small {
+      margin-top: 5px;
+      color: var(--accent);
+      font-size: 9px;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      color: #c2c1be;
+      font-size: 12px;
+    }
+
+    .nav-links a,
+    .footer-links a {
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .nav-phone {
+      white-space: nowrap;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .button {
+      min-height: 56px;
+      padding: 0 25px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #ddd5c8;
+      border-radius: 10px;
+      background: #ddd5c8;
+      color: #141414;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-align: center;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      border-color: #fff;
+      background: #fff;
+    }
+
+    .button-outline {
+      border-color: rgba(255, 255, 255, 0.24);
+      background: rgba(255, 255, 255, 0.04);
+      color: #fff;
+    }
+
+    .button-outline:hover {
+      border-color: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .button-small {
+      min-height: 46px;
+      padding-inline: 18px;
+      font-size: 10px;
+    }
+
+    /* ПЕРВЫЙ ЭКРАН */
+
+    .hero {
+      position: relative;
+      min-height: 760px;
+      min-height: min(900px, 100svh);
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: #222;
+    }
+
+    .hero-background {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.83),
+          rgba(0, 0, 0, 0.22) 80%
+        ),
+        linear-gradient(
+          0deg,
+          #0b0b0b,
+          transparent 50%
+        ),
+        url("images/hero.jpg") center / cover no-repeat;
+    }
+
+    .hero-content {
+      position: relative;
+      width: 100%;
+      padding-top: 180px;
+      padding-bottom: 90px;
+    }
+
+    .hero-inner {
+      padding-left: clamp(20px, 4vw, 58px);
+      padding-right: 10px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      flex-shrink: 0;
+      background: var(--accent);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.05;
+    }
+
+    h1 {
+      max-width: 1050px;
+      margin: 25px 0;
+      font-size: clamp(42px, 7.6vw, 104px);
+      font-weight: 800;
+      letter-spacing: -0.065em;
+      text-transform: uppercase;
+    }
+
+    h1 span {
+      color: #b9b7b2;
+    }
+
+    .hero-copy {
+      max-width: 560px;
+      color: #c5c3bf;
+      font-size: 16px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .hero-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 65px;
+      color: #aaa8a4;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* ОБЩИЕ СЕКЦИИ */
+
+    .section {
+      padding: 120px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      margin: 16px 0 0;
+      font-size: clamp(38px, 5.5vw, 72px);
+      font-weight: 800;
+      letter-spacing: -0.055em;
+      text-transform: uppercase;
+    }
+
+    .section-description {
+      max-width: 420px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* УСЛУГИ */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .service-card {
+      min-height: 230px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 16px;
+      transition:
+        transform 0.35s ease,
+        border-color 0.35s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(199, 184, 156, 0.5);
+    }
+
+    .service-number {
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+    }
+
+    .service-card h3 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      letter-spacing: -0.04em;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ФОТО */
+
+    .photo {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-width: 0;
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 12px;
+      background: linear-gradient(135deg, #343330, #1b1b1b);
+      color: inherit;
+      cursor: zoom-in;
+    }
+
+    .photo::before {
+      content: "PERFORMANCE";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: rgba(255, 255, 255, 0.18);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+    }
+
+    .photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
+      transition:
+        transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+        filter 0.4s ease;
+    }
+
+    .photo:hover img,
+    .photo:focus-visible img {
+      transform: scale(1.07);
+      filter: brightness(1.08);
+    }
+
+    /* ГАЛЕРЕЯ */
+
+    .works-section {
+      background: #101010;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-auto-rows: 270px;
+      gap: 12px;
+    }
+
+    .gallery-note {
+      margin: 18px 0 0;
+      color: #888783;
+      font-size: 12px;
+    }
+
+    /* ОТЗЫВЫ */
+
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .review {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 38%) minmax(0, 1fr);
+      align-items: center;
+      gap: 22px;
+      padding: 26px;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    .review-photo-wrap {
+      min-width: 0;
+      padding: 8px;
+    }
+
+    .review .review-photo {
+      height: 260px;
+      border-radius: 10px;
+      transform: rotate(-3deg);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    .review:nth-child(even) .review-photo {
+      transform: rotate(3deg);
+    }
+
+    .review-content {
+      min-width: 0;
+    }
+
+    .review-number {
+      display: block;
+      margin-bottom: 22px;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+    }
+
+    .review blockquote {
+      margin: 0 0 22px;
+      color: #c8c7c3;
+      font-size: 13px;
+      line-height: 1.75;
+      overflow-wrap: anywhere;
+    }
+
+    .review-author {
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    /* КОНТАКТЫ */
+
+    .contacts-section {
+      padding-top: 0;
+    }
+
+    .contacts-panel {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 35px;
+      padding: 55px;
+      border-radius: 18px;
+    }
+
+    .contacts-panel h2 {
+      margin-bottom: 28px;
+    }
+
+    .contact-phone {
+      display: inline-block;
+      margin-bottom: 8px;
+      font-size: clamp(23px, 3vw, 34px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .contact-address {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* КАЛЬКУЛЯТОР */
+
+    .calculator-section {
+      background: #101010;
+    }
+
+    .calculator {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: clamp(28px, 4vw, 58px);
+      align-items: start;
+      padding: clamp(24px, 4vw, 48px);
+      border-radius: 20px;
+    }
+
+    .calculator-intro,
+    .calculator-form {
+      min-width: 0;
+    }
+
+    .calculator-intro h2 {
+      max-width: 100%;
+      margin: 18px 0 24px;
+      font-size: clamp(30px, 3.1vw, 46px);
+      line-height: 1.1;
+      letter-spacing: -0.045em;
+      overflow-wrap: anywhere;
+    }
+
+    .calculator-intro p {
+      max-width: 390px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .calculator-notice {
+      max-width: 390px;
+      margin-top: 24px;
+      padding-left: 16px;
+      border-left: 1px solid var(--accent);
+      color: #bcbab5;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .calculator-form-title {
+      margin: 0 0 14px;
+      color: #bcbab5;
+      font-size: 12px;
+    }
+
+    /* КАТЕГОРИИ */
+
+    .category {
+      margin-bottom: 9px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .category summary {
+      position: relative;
+      min-height: 62px;
+      padding: 18px 58px 18px 18px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      list-style: none;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .category summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .category summary::after {
+      content: "+";
+      position: absolute;
+      top: 50%;
+      right: 17px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      transform: translateY(-50%);
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--accent);
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .category[open] summary::after {
+      content: "−";
+    }
+
+    .category[open] summary {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .category-content {
+      padding: 8px 14px 14px;
+    }
+
+    .option {
+      min-height: 58px;
+      padding: 12px 4px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+    }
+
+    .option:last-child {
+      border-bottom: 0;
+    }
+
+    .option input {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin: 0;
+      accent-color: #c7b89c;
+    }
+
+    .option-name {
+      flex: 1;
+      min-width: 0;
+      color: #e6e4df;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .option-price {
+      flex-shrink: 0;
+      color: #c5bba9;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .calculator-message {
+      min-height: 20px;
+      margin: 14px 0 10px;
+      color: #d5c6ab;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .calculator-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .calculator-total span {
+      color: #b8b6b1;
+      font-size: 13px;
+    }
+
+    .calculator-total strong {
+      font-size: clamp(24px, 3vw, 34px);
+      letter-spacing: -0.04em;
+      white-space: nowrap;
+    }
+
+    .calculator-footnote {
+      margin: 14px 0 24px;
+      color: #989691;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    /* ФОРМА ЗАЯВКИ */
+
+    .request-block {
+      margin-top: 26px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .request-block h3 {
+      margin: 0 0 8px;
+      font-size: 21px;
+      letter-spacing: -0.03em;
+    }
+
+    .request-description {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .request-fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .field {
+      display: block;
+      min-width: 0;
+    }
+
+    .field span {
+      display: block;
+      margin-bottom: 7px;
+      color: #c5c3bd;
+      font-size: 11px;
+    }
+
+    .field input {
+      width: 100%;
+      min-height: 52px;
+      padding: 0 14px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 9px;
+      background: rgba(0, 0, 0, 0.22);
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .field input::placeholder {
+      color: #777570;
+    }
+
+    .field input:focus {
+      border-color: var(--accent);
+    }
+
+    .request-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .form-status {
+      margin: 16px 0 0;
+      padding: 14px;
+      border: 1px solid rgba(199, 184, 156, 0.4);
+      border-radius: 9px;
+      background: rgba(199, 184, 156, 0.08);
+      color: #e3dacb;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .demo-note {
+      margin: 12px 0 0;
+      color: #989691;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    /* ПОДВАЛ */
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: #83827f;
+      font-size: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* ПРОСМОТР ФОТО */
+
+    .lightbox {
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 70px 80px;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .lightbox-image {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .lightbox-button {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.07);
+      color: #fff;
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+      transition: background 0.25s ease;
+    }
+
+    .lightbox-button:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .lightbox-close {
+      top: 20px;
+      right: 20px;
+    }
+
+    .lightbox-prev {
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-next {
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-counter {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #bbb;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+    }
+
+    /* ПЛАНШЕТЫ */
+
+    @media (max-width: 1100px) {
+      .nav-links {
+        gap: 15px;
+      }
+
+      .nav-phone {
+        display: none;
+      }
+
+      .gallery {
+        grid-auto-rows: 220px;
+      }
+
+      .reviews {
+        grid-template-columns: 1fr;
+      }
+
+      .review {
+        grid-template-columns: minmax(0, 35%) minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .calculator {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .calculator-intro h2 {
+        font-size: clamp(32px, 5vw, 46px);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        min-height: 190px;
+      }
+
+      .contacts-panel {
+        display: block;
+      }
+
+      .contact-actions {
+        margin-top: 30px;
+      }
+    }
+
+    /* ТЕЛЕФОНЫ */
+
+    @media (max-width: 650px) {
+      .container {
+        width: calc(100% - 28px);
+      }
+
+      .header {
+        top: 8px;
+      }
+
+      .nav {
+        min-height: 64px;
+        padding: 10px 12px 10px 15px;
+        border-radius: 14px;
+      }
+
+      .logo img {
+        max-width: 145px;
+        max-height: 42px;
+      }
+
+      .logo-text strong {
+        font-size: 13px;
+      }
+
+      .logo-text small {
+        font-size: 8px;
+      }
+
+      .button-small {
+        min-height: 42px;
+        padding-inline: 12px;
+        font-size: 9px;
+      }
+
+      .hero {
+        min-height: 700px;
+      }
+
+      .hero-content {
+        padding-top: 150px;
+        padding-bottom: 55px;
+      }
+
+      .hero-inner {
+        padding-left: 14px;
+        padding-right: 4px;
+      }
+
+      h1 {
+        font-size: clamp(36px, 10vw, 58px);
+      }
+
+      .hero-copy {
+        font-size: 14px;
+      }
+
+      .hero-bottom {
+        gap: 14px;
+        margin-top: 45px;
+        font-size: 9px;
+      }
+
+      .section {
+        padding: 75px 0;
+      }
+
+      .section-heading {
+        display: block;
+        margin-bottom: 30px;
+      }
+
+      .section-description {
+        margin-top: 20px;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 170px;
+        gap: 8px;
+      }
+
+      .review {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 24px;
+      }
+
+      .review .review-photo {
+        height: 240px;
+        transform: rotate(-2deg);
+      }
+
+      .review:nth-child(even) .review-photo {
+        transform: rotate(2deg);
+      }
+
+      .contacts-section {
+        padding-top: 0;
+      }
+
+      .contacts-panel {
+        padding: 26px;
+      }
+
+      .calculator {
+        padding: 24px;
+      }
+
+      .calculator-intro h2 {
+        font-size: clamp(30px, 8vw, 42px);
+      }
+
+      .request-fields {
+        grid-template-columns: 1fr;
+      }
+
+      .request-actions .button {
+        width: 100%;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+
+      .lightbox {
+        padding: 75px 14px 90px;
+      }
+
+      .lightbox-button {
+        width: 44px;
+        height: 44px;
+      }
+
+      .lightbox-prev {
+        top: auto;
+        bottom: 20px;
+        left: calc(50% - 75px);
+        transform: none;
+      }
+
+      .lightbox-next {
+        top: auto;
+        right: calc(50% - 75px);
+        bottom: 20px;
+        transform: none;
+      }
+
+      .lightbox-counter {
+        bottom: 31px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ШАПКА -->
+  <header class="header">
+    <div class="container">
+      <nav class="nav glass" aria-label="Основная навигация">
+
+        <a
+          class="logo"
+          href="#top"
+          aria-label="Performance Detailing — на главную"
+        >
+          <img
+            src="images/logo.png"
+            alt="Performance Detailing"
+            onerror="this.hidden=true; this.nextElementSibling.hidden=false"
+          >
+
+          <span class="logo-text" hidden>
+            <strong>Performance</strong>
+            <small>Detailing</small>
+          </span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#services">Услуги</a>
+          <a href="#works">Работы</a>
+          <a href="#reviews">Отзывы</a>
+          <a href="#contacts">Контакты</a>
+          <a href="#calculator">Стоимость</a>
+        </div>
+
+        <a class="nav-phone" href="tel:+79061733766">
+          +7 (906) 173-37-66
+        </a>
+
+        <a class="button button-small" href="#calculator">
+          Рассчитать
+        </a>
+
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ПЕРВЫЙ ЭКРАН -->
+    <section class="hero">
+      <div class="hero-background" aria-hidden="true"></div>
+
+      <div class="container hero-content">
+        <div class="hero-inner">
+
+          <div class="eyebrow">
+            Performance Detailing / Волгоград
+          </div>
+
+          <h1>
+            Совершенство<br>
+            <span>в деталях.</span>
+          </h1>
+
+          <p class="hero-copy">
+            Защита, уход и внимание к каждой детали вашего автомобиля.
+            Performance Detailing — пространство, где ценят результат.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button" href="#calculator">
+              Рассчитать стоимость
+            </a>
+
+            <a class="button button-outline" href="#works">
+              Наши работы
+            </a>
+          </div>
+
+          <div class="hero-bottom">
+            <span>Защита кузова</span>
+            <span>Полировка</span>
+            <span>Тонировка</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- УСЛУГИ -->
+    <section class="section" id="services">
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Услуги Performance</div>
+            <h2>Продумано<br>до деталей.</h2>
+          </div>
+
+          <p class="section-description">
+            Решения для защиты, ухода и преображения автомобиля.
+            Выберите интересующие услуги в калькуляторе внизу страницы.
+          </p>
+        </div>
+
+        <div class="services">
+
+          <article class="service-card glass">
+            <span class="service-number">01 / ЗАЩИТА</span>
+
+            <div>
+              <h3>Защита кузова</h3>
+              <p>
+                Бронирование зон риска, фар, лобового стекла
+                и отдельных элементов автомобиля.
+              </p>
+            </div>
+          </article>
+
+          <article class="service-card glass">
+            <span class="service-number">02 / ВНЕШНИЙ ВИД</span>
+
+            <div>
+              <h3>Полировка и покрытия</h3>
+              <p>
+                Полировка кузова, керамика, жидкое стекло
+                и другие покрытия.
+              </p>
+            </div>
+          </article>
+
+          <article class="service-card glass">
+            <span class="service-number">03 / КОМФОРТ</span>
+
+            <div>
+              <h3>Салон и стёкла</h3>
+              <p>
+                Химчистка, тонировка, шумоизоляция
+                и уход за автомобилем.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- РАБОТЫ -->
+    <section class="section works-section" id="works">
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Портфолио</div>
+            <h2>Результат<br>говорит сам.</h2>
+          </div>
+
+          <p class="section-description">
+            Фотографии работ Performance Detailing.
+            Нажмите на снимок, чтобы открыть его целиком.
+          </p>
+        </div>
+
+        <div class="gallery">
+
+          <button class="photo" type="button" aria-label="Открыть работу 1">
+            <img src="images/work-1.jpg" alt="Работа Performance Detailing 1" loading="lazy" onerror="this.hidden=true">
+          </button>
+
+          <button class="photo" type="button" aria-label="Открыть работу 2">
+            <img src="images/work-2.jpg" alt="Работа Performance Detailing 2" loading="lazy" onerror="this.hidden=true">
+          </button>
+
+          <button class="photo" type="button" aria-label="Открыть работу 3">
+            <img src="images/work-3.jpg" alt="Работа Performance Detailing 3" loading="lazy" onerror="this.hidden=true">
+          </button>
+
+          <button class="photo" type="button" aria-label="Открыть работу 4">
+            <img src="images/work-4.jpg" alt="Работа Performance Detailing 4" loading="lazy" onerror="this.hidden=true">
+          </button>
+
+          <button class="photo" type="button" aria-label="Открыть работу 5">
+            <img src="images/work-5.jpg" alt="Работа Performance Detailing 5" loading="lazy" onerror="this.hidden=true">
+          </button>
+
+          <button class="photo" type="button" aria-label="Открыть работу 6">
+            <img src="images/work-6.jpg" alt="Работа Performance Detailing 6" loading="lazy" onerror="this.hidden=true">
+          </button>
+
+          <button class="photo" type="button" aria-label="Открыть работу 7">
+            <img src="images/work-7.jpg" alt="Работа Performance Detailing 7" loading="lazy" onerror="this.hidden=true">
+          </button>
+
+          <button class="photo" type="button" aria-label="Открыть работу 8">
+            <img src="images/work-8.jpg" alt="Работа Performance Detailing 8" loading="lazy" onerror="this.hidden=true">
+          </button>
+
+          <button class="photo" type="button" aria-label="Открыть работу 9">
+            <img src="images/work-9.jpg" alt="Работа Performance Detailing 9" loading="lazy" onerror="this.hidden=true">
+          </button>
+
+          <button class="photo" type="button" aria-label="Открыть работу 10">
+            <img src="images/work-10.jpg" alt="Работа Performance Detailing 10" loading="lazy" onerror="this.hidden=true">
+          </button>
+
+          <button class="photo" type="button" aria-label="Открыть работу 11">
+            <img src="images/work-11.jpg" alt="Работа Performance Detailing 11" loading="lazy" onerror="this.hidden=true">
+          </button>
+
+          <button class="photo" type="button" aria-label="Открыть работу 12">
+            <img src="images/work-12.jpg" alt="Работа Performance Detailing 12" loading="lazy" onerror="this.hidden=true">
+          </button>
+
+        </div>
+
+        <p class="gallery-note">
+          Фотографии можно листать при открытии.
+        </p>
+      </div>
+    </section>
+
+    <!-- ОТЗЫВЫ -->
+    <section class="section" id="reviews">
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Отзывы клиентов</div>
+            <h2>Доверие<br>в деталях.</h2>
+          </div>
+
+          <p class="section-description">
+            Опыт клиентов, которые доверили нам свои автомобили.
+          </p>
+        </div>
+
+        <div class="reviews">
+
+          <article class="review glass">
+            <div class="review-photo-wrap">
+              <button
+                class="photo review-photo"
+                type="button"
+                aria-label="Открыть фотографию рядом с отзывом Сергея"
+              >
+                <img
+                  src="images/review-1.jpg"
+                  alt="Фотография рядом с отзывом Сергея А."
+                  loading="lazy"
+                  onerror="this.hidden=true"
+                >
+              </button>
+            </div>
+
+            <div class="review-content">
+              <span class="review-number">ОТЗЫВ / 01</span>
+
+              <blockquote>
+                Выражаю благодарность Владиславу и его сотрудникам
+                детейлинг центра за оказанное содействие в подготовке
+                нового корпоративного автомобиля! Ребята очень
+                договороспособные, поэтому на начальном этапе получилось
+                сработать на доверии! Задачей было — бронирование зон
+                риска бронепленкой. Работа была выполнена качественно
+                и в срок! Повторный осмотр автомобиля по дополнительному
+                приглашению Владислава в детейлинг центр не выявил
+                недостатков. Качеством и сроками довольны! Безусловно
+                рекомендую!
+              </blockquote>
+
+              <div class="review-author">Сергей А.</div>
+            </div>
+          </article>
+
+          <article class="review glass">
+            <div class="review-photo-wrap">
+              <button
+                class="photo review-photo"
+                type="button"
+                aria-label="Открыть фотографию рядом с отзывом Никиты"
+              >
+                <img
+                  src="images/review-2.jpg"
+                  alt="Фотография рядом с отзывом Никиты В."
+                  loading="lazy"
+                  onerror="this.hidden=true"
+                >
+              </button>
+            </div>
+
+            <div class="review-content">
+              <span class="review-number">ОТЗЫВ / 02</span>
+
+              <blockquote>
+                Хороший дитейл сервис. Всё спокойно, всё решаемо, гарантия
+                год, надеюсь не воспользуюсь. Цена на работы справедливая,
+                работают аккуратно. Поклеили зоны риска, бампер, крылья,
+                капот, фары, стойки передние и полосу на крыше + ручки и
+                передние порожки. Через 10 дней приехал на корректировку
+                и всё ок. Думаю ещё вернусь за шумкой и тонировкой.
+              </blockquote>
+
+              <div class="review-author">Никита В.</div>
+            </div>
+          </article>
+
+          <article class="review glass">
+            <div class="review-photo-wrap">
+              <button
+                class="photo review-photo"
+                type="button"
+                aria-label="Открыть фотографию рядом с отзывом Даниила"
+              >
+                <img
+                  src="images/review-3.jpg"
+                  alt="Фотография рядом с отзывом Даниила С."
+                  loading="lazy"
+                  onerror="this.hidden=true"
+                >
+              </button>
+            </div>
+
+            <div class="review-content">
+              <span class="review-number">ОТЗЫВ / 03</span>
+
+              <blockquote>
+                Делал у Влада оклейку зон риска с полировкой и нанесением
+                керамики. Влад показал себя как профессионал, все
+                предварительно рассказал, показал, после чего
+                запланировали работу. Работа была выполнена в срок,
+                все было сделано четко и без нареканий. Результатом
+                доволен! Буду обращаться еще!
+              </blockquote>
+
+              <div class="review-author">Даниил С.</div>
+            </div>
+          </article>
+
+          <article class="review glass">
+            <div class="review-photo-wrap">
+              <button
+                class="photo review-photo"
+                type="button"
+                aria-label="Открыть фотографию рядом с отзывом Виктора"
+              >
+                <img
+                  src="images/review-4.jpg"
+                  alt="Фотография рядом с отзывом Виктора Г."
+                  loading="lazy"
+                  onerror="this.hidden=true"
+                >
+              </button>
+            </div>
+
+            <div class="review-content">
+              <span class="review-number">ОТЗЫВ / 04</span>
+
+              <blockquote>
+                Задача по оклейке полиуретановой плёнкой была ребятами
+                выполнена на высшем уровне качества! Предварительно всё
+                подробно рассказали и было принято решение закатать
+                полностью авто, а так же сделана атермальная тонировка
+                и бронь лобового стекла, по итогу: я очень доволен!
+                Да, кстати, оклейку части салона ребята сделали в бонус —
+                подарок, что очень неожиданно было и приятно. Рекомендую!
+              </blockquote>
+
+              <div class="review-author">Виктор Г.</div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section class="section contacts-section" id="contacts">
+      <div class="container">
+        <div class="contacts-panel glass">
+
+          <div>
+            <div class="eyebrow">Performance Detailing</div>
+
+            <h2>Обсудим<br>ваш автомобиль.</h2>
+
+            <a class="contact-phone" href="tel:+79061733766">
+              +7 (906) 173-37-66
+            </a>
+
+            <p class="contact-address">
+              Волгоград, Логовская ул., 3
+            </p>
+          </div>
+
+          <div class="contact-actions">
+            <a class="button" href="tel:+79061733766">
+              Позвонить
+            </a>
+
+            <a
+              class="button button-outline"
+              href="https://yandex.ru/maps/?text=%D0%92%D0%BE%D0%BB%D0%B3%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%2C%20%D0%9B%D0%BE%D0%B3%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%203"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Открыть на карте
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- КАЛЬКУЛЯТОР: ПОСЛЕДНИЙ БЛОК ПЕРЕД ПОДВАЛОМ -->
+    <section class="section calculator-section" id="calculator">
+      <div class="container">
+
+        <div class="calculator glass">
+
+          <div class="calculator-intro">
+            <div class="eyebrow">Услуги и стоимость</div>
+
+            <h2>
+              Рассчитайте<br>
+              стоимость.
+            </h2>
+
+            <p>
+              Откройте нужную категорию и отметьте услуги.
+              Калькулятор сложит цены из прайса.
+            </p>
+
+            <div class="calculator-notice">
+              Расчёт предварительный. Для некоторых услуг стоимость
+              зависит от класса автомобиля и количества элементов.
+              Актуальность акции и итоговую цену уточняйте по телефону.
+            </div>
+          </div>
+
+          <form class="calculator-form" id="calculator-form">
+
+            <p class="calculator-form-title">
+              Выберите одну или несколько услуг:
+            </p>
+
+            <!-- КАТЕГОРИЯ 1 -->
+            <details class="category" name="service-category">
+              <summary>Полировка и защитные покрытия</summary>
+
+              <div class="category-content">
+
+                <label class="option">
+                  <input
+                    type="checkbox"
+                    name="service"
+                    value="Полировка + 2 слоя керамики"
+                    data-price="8000"
+                    data-service="combo"
+                  >
+                  <span class="option-name">
+                    Полировка + 2 слоя керамики
+                  </span>
+                  <span class="option-price">8 000 ₽</span>
+                </label>
+
+                <label class="option">
+                  <input
+                    type="checkbox"
+                    name="service"
+                    value="Полировка кузова автомобиля"
+                    data-price="5000"
+                    data-service="polishing"
+                  >
+                  <span class="option-name">
+                    Полировка кузова автомобиля
+                  </span>
+                  <span class="option-price">от 5 000 ₽</span>
+                </label>
+
+                <label class="option">
+                  <input
+                    type="checkbox"
+                    name="service"
+                    value="Нанесение керамики"
+                    data-price="8000"
+                    data-service="ceramic"
+                  >
+                  <span class="option-name">
+                    Нанесение керамики
+                  </span>
+                  <span class="option-price">8 000 ₽</span>
+                </label>
+
+                <label class="option">
+                  <input
+                    type="checkbox"
+                    name="service"
+                    value="Нанесение жидкого стекла"
+                    data-price="5000"
+                  >
+                  <span class="option-name">
+                    Нанесение жидкого стекла
+                  </span>
+                  <span class="option-price">5 000 ₽</span>
+                </label>
+
+                <label class="option">
+                  <input
+                    type="checkbox"
+                    name="service"
+                    value="Антидождь"
+                    data-price="2000"
+                  >
+                  <span class="option-name">Антидождь</span>
+                  <span class="option-price">2 000 ₽</span>
+                </label>
+
+              </div>
+            </details>
+
+            <!-- КАТЕГОРИЯ 2 -->
+            <details class="category" name="service-category">
+              <summary>Бронирование и оклейка</summary>
+
+              <div class="category-content">
+
+                <label class="option">
+                  <input
+                    type="checkbox"
+                    name="service"
+                    value="Бронирование зон риска"
+                    data-price="40000"
+                    data-service="risk"
+                  >
+                  <span class="option-name">
+                    Бронирование зон риска
+                  </span>
+                  <span class="option-price">40 000 ₽</span>
+                </label>
+
+                <label class="option">
+                  <input
+                    type="checkbox"
+                    name="service"
+                    value="Бронирование фар"
+                    data-price="5000"
+                    data-service="headlights"
+                  >
+                  <span class="option-name">
+                    Бронирование фар
+                  </span>
+                  <span class="option-price">5 000 ₽</span>
+                </label>
+
+                <label class="option">
+                  <input
+                    type="checkbox"
+                    name="service"
+                    value="Бронирование лобового стекла"
+                    data-price="20000"
+                  >
+                  <span class="option-name">
+                    Бронирование лобового стекла
+                  </span>
+                  <span class="option-price">20 000 ₽</span>
+                </label>
+
+                <label class="option">
+                  <input
+                    type="checkbox"
+                    name="service"
+                    value="Защита кузова антигравийной плёнкой"
+                    data-price="1000"
+                  >
+                  <span class="option-name">
+                    Защита кузова антигравийной плёнкой
+                  </span>
+                  <span class="option-price">1 000 ₽</span>
+                </label>
+
+                <label class="option">
+                  <input
+                    type="checkbox"
+                    name="service"
+                    value="Оклейка кузова в цветную плёнку"
+                    data-price="5000"
+                  >
+                  <span class="option-name">
+                    Оклейка кузова в цветную плёнку
+                  </span>
+                  <span class="option-price">5 000 ₽</span>
+                </label>
+
+                <label class="option">
+                  <input
+                    type="checkbox"
+                    name="service"
+                    value="Оклейка интерьера салона"
+                    data-price="2000"
+                  >
+                  <span class="option-name">
+                    Оклейка интерьера салона
+                  </span>
+                  <span class="option-price">2 000 ₽</span>
+                </label>
+
+                <label class="option">
+                  <input
+                    type="checkbox"
+                    name="service"
+                    value="Антихром"
+                    data-price="2000"
+                  >
+                  <span class="option-name">Антихром</span>
+                  <span class="option-price">2 000 ₽</span>
+                </label>
+
+              </div>
+            </details>
+
+            <!-- КАТЕГОРИЯ 3 -->
+            <details class="category" name="service-category">
+              <summary>Салон, стёкла и уход</summary>
+
+              <div class="category-content">
+
+                <label class="option">
+                  <input
+                    type="checkbox"
+                    name="service"
+                    value="Химчистка салона с разбором"
+                    data-price="8000"
+                  >
+                  <span class="option-name">
+                    Химчистка салона с разбором
+                  </span>
+                  <span class="option-price">8 000 ₽</span>
+                </label>
+
+                <label class="option">
+                  <input
+                    type="checkbox"
+                    name="service"
+                    value="Химчистка элементов салона"
+                    data-price="1000"
+                  >
+                  <span class="option-name">
+                    Химчистка элементов салона
+                  </span>
+                  <span class="option-price">1 000 ₽</span>
+                </label>
+
+                <label class="option">
+                  <input
+                    type="checkbox"
+                    name="service"
+                    value="Влажная уборка автомобиля"
+                    data-price="3000"
+                  >
+                  <span class="option-name">
+                    Влажная уборка автомобиля
+                  </span>
+                  <span class="option-price">3 000 ₽</span>
+                </label>
+
+                <label class="option">
+                  <input
+                    type="checkbox"
+                    name="service"
+                    value="Шумоизоляция автомобиля"
+                    data-price="5000"
+                  >
+                  <span class="option-name">
+                    Шумоизоляция автомобиля
+                  </span>
+                  <span class="option-price">5 000 ₽</span>
+                </label>
+
+                <label class="option">
+                  <input
+                    type="checkbox"
+                    name="service"
+                    value="Тонировка автомобиля"
+                    data-price="1000"
+                  >
+                  <span class="option-name">
+                    Тонировка автомобиля
+                  </span>
+                  <span class="option-price">1 000 ₽</span>
+                </label>
+
+                <label class="option">
+                  <input
+                    type="checkbox"
+                    name="service"
+                    value="Мойка подкапотного пространства"
+                    data-price="3000"
+                  >
+                  <span class="option-name">
+                    Мойка подкапотного пространства
+                  </span>
+                  <span class="option-price">3 000 ₽</span>
+                </label>
+
+                <label class="option">
+                  <input
+                    type="checkbox"
+                    name="service"
+                    value="Мойка двигателя паром"
+                    data-price="2000"
+                  >
+                  <span class="option-name">
+                    Мойка двигателя паром
+                  </span>
+                  <span class="option-price">2 000 ₽</span>
+                </label>
+
+              </div>
+            </details>
+
+            <p
+              class="calculator-message"
+              id="calculator-message"
+              role="status"
+              aria-live="polite"
+            ></p>
+
+            <div class="calculator-total">
+              <span>Предварительная стоимость</span>
+              <strong id="total" aria-live="polite">0 ₽</strong>
+            </div>
+
+            <p class="calculator-footnote">
+              Цена полировки кузова — от 5 000 ₽. Стоимость мойки
+              двигателя зависит от класса автомобиля, а защиты
+              антигравийной плёнкой — от количества элементов.
+              Объём остальных работ и итоговую цену уточняйте у мастера.
+            </p>
+
+            <div class="request-block">
+              <h3>Оставить заявку</h3>
+
+              <p class="request-description">
+                Выберите услуги и укажите ваши контакты.
+              </p>
+
+              <div class="request-fields">
+                <label class="field">
+                  <span>Ваше имя</span>
+                  <input
+                    type="text"
+                    name="customer_name"
+                    id="customer-name"
+                    placeholder="Как к вам обращаться"
+                    autocomplete="name"
+                    maxlength="100"
+                    required
+                  >
+                </label>
+
+                <label class="field">
+                  <span>Номер телефона</span>
+                  <input
+                    type="tel"
+                    name="customer_phone"
+                    id="customer-phone"
+                    placeholder="+7 (___) ___-__-__"
+                    autocomplete="tel"
+                    inputmode="tel"
+                    maxlength="25"
+                    required
+                  >
+                </label>
+              </div>
+
+              <div class="request-actions">
+                <button class="button" type="submit">
+                  Оставить заявку
+                </button>
+
+                <button class="button button-outline" type="reset">
+                  Очистить
+                </button>
+              </div>
+
+              <p class="demo-note">
+                Демо-версия: отправка заявок пока не подключена.
+                Для связи с нами позвоните по номеру
+                <a href="tel:+79061733766">+7 (906) 173-37-66</a>.
+              </p>
+
+              <p
+                class="form-status"
+                id="form-status"
+                role="status"
+                aria-live="polite"
+                hidden
+              ></p>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ПОДВАЛ -->
+  <footer>
+    <div class="container footer-inner">
+
+      <span>
+        © <span id="year"></span> Performance Detailing. Волгоград.
+      </span>
+
+      <div class="footer-links">
+        <a href="#top">Наверх</a>
+        <a href="tel:+79061733766">Позвонить</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ПРОСМОТР ФОТО -->
+  <div
+    class="lightbox"
+    id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Просмотр фотографий"
+    hidden
+  >
+    <button
+      class="lightbox-button lightbox-close"
+      type="button"
+      aria-label="Закрыть просмотр"
+    >
+      ×
+    </button>
+
+    <button
+      class="lightbox-button lightbox-prev"
+      type="button"
+      aria-label="Предыдущая фотография"
+    >
+      ‹
+    </button>
+
+    <img class="lightbox-image" id="lightbox-image" alt="">
+
+    <button
+      class="lightbox-button lightbox-next"
+      type="button"
+      aria-label="Следующая фотография"
+    >
+      ›
+    </button>
+
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+  </div>
+
+  <script>
+    /* ГОД В ПОДВАЛЕ */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    /* КАЛЬКУЛЯТОР */
+
+    const calculatorForm = document.getElementById("calculator-form");
+    const totalElement = document.getElementById("total");
+    const calculatorMessage = document.getElementById("calculator-message");
+    const formStatus = document.getElementById("form-status");
+    const customerPhone = document.getElementById("customer-phone");
+
+    const categories = Array.from(
+      calculatorForm.querySelectorAll(".category")
+    );
+
+    const serviceInputs = Array.from(
+      calculatorForm.querySelectorAll('input[name="service"]')
+    );
+
+    const comboInput = calculatorForm.querySelector(
+      '[data-service="combo"]'
+    );
+
+    const polishingInput = calculatorForm.querySelector(
+      '[data-service="polishing"]'
+    );
+
+    const ceramicInput = calculatorForm.querySelector(
+      '[data-service="ceramic"]'
+    );
+
+    const riskInput = calculatorForm.querySelector(
+      '[data-service="risk"]'
+    );
+
+    const headlightsInput = calculatorForm.querySelector(
+      '[data-service="headlights"]'
+    );
+
+    /* Только одна категория открыта одновременно */
+
+    categories.forEach(function (category) {
+      category.addEventListener("toggle", function () {
+        if (!category.open) return;
+
+        categories.forEach(function (other) {
+          if (other !== category) {
+            other.open = false;
+          }
+        });
+      });
+    });
+
+    function updateTotal() {
+      const total = serviceInputs.reduce(function (sum, input) {
+        return sum + (input.checked ? Number(input.dataset.price) : 0);
+      }, 0);
+
+      totalElement.textContent =
+        total.toLocaleString("ru-RU") + " ₽";
+    }
+
+    function hideFormStatus() {
+      formStatus.hidden = true;
+      formStatus.textContent = "";
+    }
+
+    calculatorForm.addEventListener("change", function (event) {
+      const input = event.target;
+
+      hideFormStatus();
+
+      if (!input.matches('input[name="service"]')) return;
+
+      calculatorMessage.textContent = "";
+
+      /* Комплекс полировки и керамики не считаем дважды */
+
+      if (input === comboInput && comboInput.checked) {
+        if (polishingInput.checked || ceramicInput.checked) {
+          polishingInput.checked = false;
+          ceramicInput.checked = false;
+
+          calculatorMessage.textContent =
+            "Отдельные полировка и керамика сняты: они входят в выбранный комплекс.";
+        }
+      }
+
+      if (
+        (input === polishingInput || input === ceramicInput) &&
+        input.checked &&
+        comboInput.checked
+      ) {
+        comboInput.checked = false;
+
+        calculatorMessage.textContent =
+          "Комплекс снят, чтобы не считать полировку и керамику дважды.";
+      }
+
+      /* Фары входят в бронирование зон риска */
+
+      if (input === riskInput && riskInput.checked && headlightsInput.checked) {
+        headlightsInput.checked = false;
+
+        calculatorMessage.textContent =
+          "Бронирование фар снято: оно входит в выбранный комплекс зон риска.";
+      }
+
+      if (input === headlightsInput && headlightsInput.checked && riskInput.checked) {
+        riskInput.checked = false;
+
+        calculatorMessage.textContent =
+          "Комплекс зон риска снят, чтобы не считать бронирование фар дважды.";
+      }
+
+      updateTotal();
+    });
+
+    calculatorForm.addEventListener("input", function (event) {
+      if (event.target === customerPhone) {
+        customerPhone.setCustomValidity("");
+      }
+
+      hideFormStatus();
+    });
+
+    calculatorForm.addEventListener("reset", function () {
+      setTimeout(function () {
+        calculatorMessage.textContent = "";
+        customerPhone.setCustomValidity("");
+        hideFormStatus();
+
+        categories.forEach(function (category) {
+          category.open = false;
+        });
+
+        updateTotal();
+      }, 0);
+    });
+
+    /* ДЕМО-ОТПРАВКА: ДАННЫЕ НИКУДА НЕ ОТПРАВЛЯЮТСЯ */
+
+    calculatorForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const selectedServices = serviceInputs.filter(function (input) {
+        return input.checked;
+      });
+
+      if (!selectedServices.length) {
+        calculatorMessage.textContent =
+          "Выберите хотя бы одну услугу.";
+
+        categories[0].open = true;
+        categories[0].querySelector("summary").focus();
+        return;
+      }
+
+      const digits = customerPhone.value.replace(/\D/g, "");
+
+      if (digits.length < 10 || digits.length > 15) {
+        customerPhone.setCustomValidity(
+          "Введите корректный номер телефона: от 10 до 15 цифр."
+        );
+        customerPhone.reportValidity();
+        return;
+      }
+
+      customerPhone.setCustomValidity("");
+      calculatorMessage.textContent = "";
+
+      formStatus.textContent =
+        "Это демонстрация: заявка не отправлена, Telegram пока не подключён. " +
+        "Чтобы связаться с нами, позвоните по номеру +7 (906) 173-37-66.";
+
+      formStatus.hidden = false;
+    });
+
+    /* ПРОСМОТР ФОТОГРАФИЙ */
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+    const counter = document.getElementById("lightbox-counter");
+
+    const closeButton = lightbox.querySelector(".lightbox-close");
+    const prevButton = lightbox.querySelector(".lightbox-prev");
+    const nextButton = lightbox.querySelector(".lightbox-next");
+
+    const photoButtons = Array.from(
+      document.querySelectorAll(".photo")
+    );
+
+    let available = [];
+    let currentIndex = 0;
+    let lastFocused = null;
+
+    function getAvailablePhotos() {
+      return photoButtons.filter(function (button) {
+        const image = button.querySelector("img");
+
+        return image &&
+          !image.hidden &&
+          image.complete &&
+          image.naturalWidth > 0;
+      });
+    }
+
+    function showPhoto(index) {
+      if (!available.length) return;
+
+      currentIndex =
+        (index + available.length) % available.length;
+
+      const image = available[currentIndex].querySelector("img");
+
+      lightboxImage.src = image.currentSrc || image.src;
+      lightboxImage.alt = image.alt;
+
+      counter.textContent =
+        (currentIndex + 1) + " / " + available.length;
+
+      prevButton.hidden = available.length < 2;
+      nextButton.hidden = available.length < 2;
+    }
+
+    function openLightbox(button) {
+      available = getAvailablePhotos();
+
+      const index = available.indexOf(button);
+
+      if (index === -1) return;
+
+      lastFocused = button;
+      showPhoto(index);
+
+      lightbox.hidden = false;
+      document.body.classList.add("modal-open");
+      closeButton.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.hidden = true;
+      document.body.classList.remove("modal-open");
+
+      lightboxImage.removeAttribute("src");
+      lightboxImage.alt = "";
+
+      if (lastFocused) {
+        lastFocused.focus();
+      }
+    }
+
+    photoButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        openLightbox(button);
+      });
+    });
+
+    closeButton.addEventListener("click", closeLightbox);
+
+    prevButton.addEventListener("click", function () {
+      showPhoto(currentIndex - 1);
+    });
+
+    nextButton.addEventListener("click", function () {
+      showPhoto(currentIndex + 1);
+    });
+
+    lightbox.addEventListener("click", function (event) {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (lightbox.hidden) return;
+
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+
+      if (event.key === "ArrowLeft") {
+        showPhoto(currentIndex - 1);
+      }
+
+      if (event.key === "ArrowRight") {
+        showPhoto(currentIndex + 1);
+      }
+
+      if (event.key === "Tab") {
+        const controls = [
+          closeButton,
+          prevButton,
+          nextButton
+        ].filter(function (button) {
+          return !button.hidden;
+        });
+
+        const first = controls[0];
+        const last = controls[controls.length - 1];
+
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    });
+  </script>
+<script>
+  // Переносим контакты под калькулятор, перед подвалом
+  const calculatorSection = document.getElementById("calculator");
+  const contactsSection = document.getElementById("contacts");
+
+  if (calculatorSection && contactsSection) {
+    calculatorSection.insertAdjacentElement("afterend", contactsSection);
+  }
+</script>
+
+</body>
+</html>
